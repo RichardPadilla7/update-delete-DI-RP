@@ -52,8 +52,7 @@ public class EstudiantesA {
                 String URL = "jdbc:mysql://localhost:3306/estudiantes2024A";
                 String USER = "root";
                 String PASSWORD = "123456";
-
-                String cedula = "1726195207";
+                String cedula = ingresarCedula.getText();
 
                 String sql = "DELETE FROM estudiante WHERE cedula = ?";
 
@@ -66,9 +65,9 @@ public class EstudiantesA {
                     int filasEliminadas = statement.executeUpdate();
 
                     if (filasEliminadas > 0) {
-                        System.out.println("El estudiante " + cedula + " ha sido eliminado correctamente.");
+                        imprimirDatos.setText(cedula + " ha sido eliminado correctamente.");
                     } else {
-                        System.out.println("No se encontró ningún estudiante con cedula " + cedula + " para eliminar.");
+                        imprimirDatos.setText(cedula + " no ha sido eliminado. ");
                     }
                 }catch (SQLException e){
                     System.out.println(e.getMessage());
